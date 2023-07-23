@@ -45,14 +45,14 @@ DIR_BASE		:= ./
 DIR_SOURCE		:= $(addprefix $(DIR_BASE),src)
 DIR_INCLUDE		:= $(addprefix $(DIR_BASE),include)
 DIR_BINARY		:= $(addprefix $(DIR_BASE),bin)
-DIR_EXTERNAL		:= $(addprefix $(DIR_BASE),external)
-REQUIRED_FOLDERS	:= src include bin external
+DIR_EXTERNAL	:= $(addprefix $(DIR_BASE),external)
+REQUIRED_FOLDERS:= src include bin external
 
 
 # Define default C compiler, archiver to pack library and compiler flags
-CC		 	:= g++
-AR 			:= ar
-CFLAGS 			:= -std=c++11 -Wall -Werror -Wpedantic -lGL -lm -lpthread -ldl -lrt -lX11
+CC		 		:= g++
+AR 				:= ar
+CFLAGS 				:= -std=c++11 -Wall -Werror -Wpedantic 
 
 
 #*****************************************************************************
@@ -61,16 +61,13 @@ CFLAGS 			:= -std=c++11 -Wall -Werror -Wpedantic -lGL -lm -lpthread -ldl -lrt -l
 
 
 REQUIRED_LIBRARIES 	:= 	mylib \
-				raylib 
+						raylib 
 INCLUDE_PATH		:=	$(DIR_EXTERNAL)/mylib \
-				$(DIR_EXTERNAL)/raylib \
-				/usr/local/include					
+						$(DIR_EXTERNAL)/raylib 						
 INCLUDE_PATH		:=	$(addprefix -I, $(INCLUDE_PATH))
 LIBRARY_PATH		:= 	$(DIR_EXTERNAL)/mylib \
-				$(DIR_EXTERNAL)/raylib 
-LIBRARY_PATH		:= 	$(addprefix -L, $(LIBRARY_PATH)) \
-				-L/usr \
-				-L/usr/local/lib
+						$(DIR_EXTERNAL)/raylib 
+LIBRARY_PATH		:= 	$(addprefix -L, $(LIBRARY_PATH))
 
 
 #*****************************************************************************
